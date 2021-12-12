@@ -3,11 +3,11 @@ package com.example.exampleProject.Models;
 
 
 import lombok.Data;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.UUID;
 
 @Entity
 @Table(name="applicant")
@@ -15,19 +15,21 @@ import java.util.Date;
 public class FormModel {
 
     @Id
-    Long id;
+    @Column(name= "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    String name;
-    String IdentityNum;
-    String email;
-    String phone;
-    String address;
-    Date dob;
-    String Q1;
-    String Q2;
-    String Q3;
-    String Q4;
-    String Q5;
+    private String name;
+    private String IdentityNum;
+    private String email;
+    private String phone;
+    private String address;
+    private Date dob;
+    private String q1;
+    private String q2;
+    private String q3;
+    private String q4;
+    private String q5;
 }
     /*
     <dependency>
