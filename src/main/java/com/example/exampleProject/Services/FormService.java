@@ -1,9 +1,11 @@
 package com.example.exampleProject.Services;
 
 import com.example.exampleProject.Models.FormModel;
+import com.example.exampleProject.Models.JspModel;
 import com.example.exampleProject.Repositories.FormRepository;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 @Service
@@ -46,6 +48,15 @@ public class FormService {
         oldModel.setQ3(model.getQ3());
         oldModel.setQ4(model.getQ4());
         oldModel.setQ5(model.getQ5());
+        formRepository.save(oldModel);
         return oldModel;
+    }
+
+    public void jspSave(JspModel jspModel) {
+        FormModel formModel = new FormModel(jspModel.getName(),
+                jspModel.getIdentityNum(),jspModel.getEmail(),
+                jspModel.getPhone(),jspModel.getAddress(), Date.valueOf(jspModel.getDob()),
+                jspModel.getQ1(),jspModel.getQ2(),jspModel.getQ3(),jspModel.getQ4(),jspModel.getQ5());
+        formRepository.save(formModel);
     }
 }

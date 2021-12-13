@@ -19,6 +19,7 @@ public class FormModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     private String name;
     private String IdentityNum;
     private String email;
@@ -30,14 +31,22 @@ public class FormModel {
     private String q3;
     private String q4;
     private String q5;
+
+    public FormModel(){
+
+    }
+
+    public FormModel(String name, String identityNum, String email, String phone, String address, Date dob, String q1, String q2, String q3, String q4, String q5) {
+        this.name = name;
+        IdentityNum = identityNum;
+        this.email = email;
+        this.phone = phone;
+        this.address = address;
+        this.dob = dob;
+        this.q1 = q1;
+        this.q2 = q2;
+        this.q3 = q3;
+        this.q4 = q4;
+        this.q5 = q5;
+    }
 }
-    /*
-    <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-jdbc</artifactId>
-		</dependency>
-    * */
